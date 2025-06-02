@@ -2,24 +2,34 @@ from produto import FuncionarioCLT, FuncionarioPJ, Produto, ProdutoImportado, Pr
 
 
 # Exemplo de uso:
+print("\n   Cadastro de Produtos    ")
+produtos = [
+    ProdutoNacional("Mouse", 50.0, 30),
+    ProdutoImportado("Notebook", 5000.0, 10, 0.2),
+    ProdutoNacional("Webcam", 200.0, 15)
+]
 
-# Testando Produto e subclasses
-print("\n--- Produtos ---")
-p1 = Produto("Teclado", 100.0, 10)
-p2 = ProdutoNacional("Monitor", 800.0, 5)
-p3 = ProdutoImportado("Celular", 2000.0, 2, 0.2)
+print("\n    Detalhes e Notas Fiscais    ")
+for produto in produtos:
+    produto.exibir_detalhes()
+    produto.emitir_nota()
+    print(f"Preço Final: R${produto.preco_final():.2f}\n")
 
-p1.exibir_detalhes()
-p2.exibir_detalhes()
-p3.exibir_detalhes()
+print("\n    Cadastro de Funcionários    ")
+funcionarios = [
+    FuncionarioCLT("Lucas", 3000.00),
+    FuncionarioPJ("Ana", 160, 40)
+]
 
-print(f"Preço final do {p3.nome}: R${p3.preco_final():.2f}")
-p3.emitir_nota()
+print("\n    Pagamentos    ")
+for funcionario in funcionarios:
+    print(f"{funcionario.nome} receberá R${funcionario.calcular_pagamento():.2f}")
 
-# Testando Funcionários
-print("\n--- Funcionários ---")
-f1 = FuncionarioCLT("João", 3500.00)
-f2 = FuncionarioPJ("Mariana", 160, 50)
+print("\n    Venda e Reposição    ")
+produto_escolhido = produtos[0]  # Mouse
+produto_escolhido.vender(5)
+produto_escolhido.repor(10)
 
-print(f"{f1.nome} vai receber R${f1.calcular_pagamento():.2f}")
-print(f"{f2.nome} vai receber R${f2.calcular_pagamento():.2f}")
+print("\n    Estoque Final    ")
+for produto in produtos:
+    produto.exibir_detalhes()
