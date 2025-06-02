@@ -4,12 +4,12 @@ from produto import ProdutoNacional
 
 # Exemplo de uso:
 
-# Criando instâncias
-produto = Produto("Caderno", 25.00, 50)
-nacional = ProdutoNacional("Caneta", 3.50, 100)
-importado = ProdutoImportado("Notebook", 3000.00, 10, 0.2)
+# Criando produtos
+p1 = Produto("Fone", 150.00, 30)
+p2 = ProdutoNacional("Mouse", 80.00, 60)
+p3 = ProdutoImportado("Tablet", 1200.00, 10, 0.25)
 
-# Exibindo preços finais
-print(f"Preço final (Produto): R${produto.preco_final():.2f}")
-print(f"Preço final (ProdutoNacional): R${nacional.preco_final():.2f}")
-print(f"Preço final (ProdutoImportado): R${importado.preco_final():.2f}")
+# Emitindo notas
+p1.emitir_nota()
+p2.emitir_nota()
+p3.emitir_nota()

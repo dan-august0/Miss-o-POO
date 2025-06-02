@@ -10,13 +10,19 @@ class Produto:
     def preco_final(self):
         return self.preco
 
+    def emitir_nota(self):
+        print(f"Nota gerada para {self.nome}.")
+
 
 class ProdutoNacional(Produto):
     def __init__(self, nome, preco, estoque):
         super().__init__(nome, preco, estoque)
 
     def preco_final(self):
-        return super().preco_final()  # Mesmo comportamento do Produto
+        return super().preco_final()
+
+    def emitir_nota(self):
+        print(f"Nota fiscal nacional para {self.nome}.")
 
 
 class ProdutoImportado(Produto):
@@ -29,3 +35,6 @@ class ProdutoImportado(Produto):
 
     def exibir_detalhes(self):
         print(f"Produto: {self.nome} | Preço c/ Importação: R${self.preco_final():.2f} | Estoque: {self.estoque} unidades")
+
+    def emitir_nota(self):
+        print(f"Nota de importação para {self.nome} com taxa aplicada.")
